@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="matrix_multiplicator"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="matrix_multiplicator">
+				<Option output="C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/matrix_multiplicator.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.2/include"/>
+					<Add directory="D:/MinGW/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="D:/MinGW/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="D:/MinGW/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/Makefile&quot;  VERBOSE=1 matrix_multiplicator"/>
+					<CompileFile command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="matrix_multiplicator/fast">
+				<Option output="C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/matrix_multiplicator.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.2/include"/>
+					<Add directory="D:/MinGW/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="D:/MinGW/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="D:/MinGW/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/Makefile&quot;  VERBOSE=1 matrix_multiplicator/fast"/>
+					<CompileFile command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/rafig/CLionProjects/matrix_multiplicator/file_reader.c">
+			<Option target="matrix_multiplicator"/>
+		</Unit>
+		<Unit filename="C:/Users/rafig/CLionProjects/matrix_multiplicator/file_reader.h">
+			<Option target="matrix_multiplicator"/>
+		</Unit>
+		<Unit filename="C:/Users/rafig/CLionProjects/matrix_multiplicator/helper.c">
+			<Option target="matrix_multiplicator"/>
+		</Unit>
+		<Unit filename="C:/Users/rafig/CLionProjects/matrix_multiplicator/helper.h">
+			<Option target="matrix_multiplicator"/>
+		</Unit>
+		<Unit filename="C:/Users/rafig/CLionProjects/matrix_multiplicator/main.c">
+			<Option target="matrix_multiplicator"/>
+		</Unit>
+		<Unit filename="C:/Users/rafig/CLionProjects/matrix_multiplicator/main.h">
+			<Option target="matrix_multiplicator"/>
+		</Unit>
+		<Unit filename="C:/Users/rafig/CLionProjects/matrix_multiplicator/matrix_computer.c">
+			<Option target="matrix_multiplicator"/>
+		</Unit>
+		<Unit filename="C:/Users/rafig/CLionProjects/matrix_multiplicator/matrix_computer.h">
+			<Option target="matrix_multiplicator"/>
+		</Unit>
+		<Unit filename="C:/Users/rafig/CLionProjects/matrix_multiplicator/matrix_reader.c">
+			<Option target="matrix_multiplicator"/>
+		</Unit>
+		<Unit filename="C:/Users/rafig/CLionProjects/matrix_multiplicator/matrix_reader.h">
+			<Option target="matrix_multiplicator"/>
+		</Unit>
+		<Unit filename="C:/Users/rafig/CLionProjects/matrix_multiplicator/opencl_kernel_reader.c">
+			<Option target="matrix_multiplicator"/>
+		</Unit>
+		<Unit filename="C:/Users/rafig/CLionProjects/matrix_multiplicator/opencl_kernel_reader.h">
+			<Option target="matrix_multiplicator"/>
+		</Unit>
+		<Unit filename="C:/Users/rafig/CLionProjects/matrix_multiplicator/opencl_utils.c">
+			<Option target="matrix_multiplicator"/>
+		</Unit>
+		<Unit filename="C:/Users/rafig/CLionProjects/matrix_multiplicator/opencl_utils.h">
+			<Option target="matrix_multiplicator"/>
+		</Unit>
+		<Unit filename="C:/Users/rafig/CLionProjects/matrix_multiplicator/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/rafig/CLionProjects/matrix_multiplicator/file_reader.h
+main.h
+C:/Users/rafig/CLionProjects/matrix_multiplicator/main.h
+
+C:/Users/rafig/CLionProjects/matrix_multiplicator/main.c
+stdio.h
+-
+stdlib.h
+-
+unistd.h
+-
+file_reader.h
+C:/Users/rafig/CLionProjects/matrix_multiplicator/file_reader.h
+matrix_reader.h
+C:/Users/rafig/CLionProjects/matrix_multiplicator/matrix_reader.h
+matrix_computer.h
+C:/Users/rafig/CLionProjects/matrix_multiplicator/matrix_computer.h
+
+C:/Users/rafig/CLionProjects/matrix_multiplicator/main.h
+
+C:/Users/rafig/CLionProjects/matrix_multiplicator/matrix_computer.h
+main.h
+C:/Users/rafig/CLionProjects/matrix_multiplicator/main.h
+
+C:/Users/rafig/CLionProjects/matrix_multiplicator/matrix_reader.h
+main.h
+C:/Users/rafig/CLionProjects/matrix_multiplicator/main.h
+
