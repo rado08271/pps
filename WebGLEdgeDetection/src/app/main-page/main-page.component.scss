@@ -1,0 +1,44 @@
+html {
+  background: #f2f2f2;
+}
+.container {
+  justify-content: center;
+  align-items: center;
+}
+#container-img, #container-btn {
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+canvas {
+  margin: 2% 0.5%;
+  display: inline-block;
+}
+#original-image {
+  border: 1px solid #000;
+  background: #fff;
+}
+#detected-image {
+  background: #000;
+}
+/*img {
+	display: none;
+}*/
+.controller {
+  margin: 0 0.5%;
+  width: 25%;
+  display: inline-block;
+  text-align: center;
+}
+#upload-img-btn {
+  text-align: right;
+}
+input[type="file"] {
+  display: none;
+}
+.err-text {
+  div {
+    color: #f54;
+    margin: 2% 0;
+  }
+}
