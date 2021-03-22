@@ -10,22 +10,12 @@ html {
   display: block;
   text-align: center;
 }
-canvas {
+img, canvas {
   margin: 2% 0.5%;
   display: inline-block;
 }
-#original-image {
-  border: 1px solid #000;
-  background: #fff;
-}
-#detected-image {
-  background: #000;
-}
-/*img {
-	display: none;
-}*/
 .controller {
-  margin: 0 0.5%;
+  margin: 0 8%;
   width: 25%;
   display: inline-block;
   text-align: center;
@@ -33,12 +23,13 @@ canvas {
 #upload-img-btn {
   text-align: right;
 }
-input[type="file"] {
-  display: none;
-}
-.err-text {
-  div {
+.container-dialog {
+  margin: 2% 0;
+
+  div.msg-err {
     color: #f54;
-    margin: 2% 0;
+  }
+  div.msg-suc {
+    color: #4bb543;
   }
 }

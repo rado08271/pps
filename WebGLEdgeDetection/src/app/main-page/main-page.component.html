@@ -2,22 +2,22 @@
 <div class="container">
 
     <div id="container-img">
-        <canvas id="original-image" width="360" height="360"></canvas>
-        <canvas id="detected-image" width="360" height="360"></canvas>
+        <img [src]="url" id="original-image" width="512" height="512">
+        <canvas id="detected-image" width="512" height="512"></canvas>
     </div>
 
     <div id="container-btn">
         <div class="controller">
-            <input id="file-input" type="file" />
-            <button id="upload-img-btn">Upload Image</button>
+            <input type="file" id="upload-img-btn" (change)="onSelectFile($event)"/>
         </div>
         <div class="controller">
-            <button id="detect-img-btn">Detect edges</button>
+            <input type="button" id="detect-img-btn" (click)="onDetectEdges($event)" value="Detect edges">
         </div>
     </div>
 
-    <div class="err-text">
-        <div id="err-msg"></div>
+    <div class="container-dialog">
+        <div id="msg-err"></div>
+        <div id="msg-suc"></div>
     </div>
 
 </div>
