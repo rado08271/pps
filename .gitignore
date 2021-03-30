@@ -1,1 +1,3 @@
-.idea
+/.idea
+/matrix_multiplicator/.idea
+/matrix_multiplicator/cmake-build-debug/
