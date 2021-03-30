@@ -67,10 +67,10 @@ RM = "D:\CLion\CLion 2020.3.1\bin\cmake\win\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\rafig\CLionProjects\matrix_multiplicator
+CMAKE_SOURCE_DIR = C:\Users\rafig\CLionProjects\pps\matrix_multiplicator
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\rafig\CLionProjects\matrix_multiplicator\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,9 +99,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\rafig\CLionProjects\matrix_multiplicator\cmake-build-debug\CMakeFiles C:\Users\rafig\CLionProjects\matrix_multiplicator\cmake-build-debug\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\cmake-build-debug\CMakeFiles C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\cmake-build-debug\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\rafig\CLionProjects\matrix_multiplicator\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -331,6 +331,60 @@ opencl_utils.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\matrix_multiplicator.dir\build.make CMakeFiles/matrix_multiplicator.dir/opencl_utils.c.s
 .PHONY : opencl_utils.c.s
 
+simple_timer.obj: simple_timer.c.obj
+
+.PHONY : simple_timer.obj
+
+# target to build an object file
+simple_timer.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\matrix_multiplicator.dir\build.make CMakeFiles/matrix_multiplicator.dir/simple_timer.c.obj
+.PHONY : simple_timer.c.obj
+
+simple_timer.i: simple_timer.c.i
+
+.PHONY : simple_timer.i
+
+# target to preprocess a source file
+simple_timer.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\matrix_multiplicator.dir\build.make CMakeFiles/matrix_multiplicator.dir/simple_timer.c.i
+.PHONY : simple_timer.c.i
+
+simple_timer.s: simple_timer.c.s
+
+.PHONY : simple_timer.s
+
+# target to generate assembly for a file
+simple_timer.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\matrix_multiplicator.dir\build.make CMakeFiles/matrix_multiplicator.dir/simple_timer.c.s
+.PHONY : simple_timer.c.s
+
+ui.obj: ui.c.obj
+
+.PHONY : ui.obj
+
+# target to build an object file
+ui.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\matrix_multiplicator.dir\build.make CMakeFiles/matrix_multiplicator.dir/ui.c.obj
+.PHONY : ui.c.obj
+
+ui.i: ui.c.i
+
+.PHONY : ui.i
+
+# target to preprocess a source file
+ui.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\matrix_multiplicator.dir\build.make CMakeFiles/matrix_multiplicator.dir/ui.c.i
+.PHONY : ui.c.i
+
+ui.s: ui.c.s
+
+.PHONY : ui.s
+
+# target to generate assembly for a file
+ui.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\matrix_multiplicator.dir\build.make CMakeFiles/matrix_multiplicator.dir/ui.c.s
+.PHONY : ui.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -361,6 +415,12 @@ help:
 	@echo ... opencl_utils.obj
 	@echo ... opencl_utils.i
 	@echo ... opencl_utils.s
+	@echo ... simple_timer.obj
+	@echo ... simple_timer.i
+	@echo ... simple_timer.s
+	@echo ... ui.obj
+	@echo ... ui.i
+	@echo ... ui.s
 .PHONY : help
 
 

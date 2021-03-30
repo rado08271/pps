@@ -33,3 +33,26 @@ int* stringToSubsetOfIntegers(string stringToSplit, string delimiter, int arrayS
     return array;
 }
 
+int getDigitalInput(string message) {
+    int number = -1;
+
+    printf("%s", message);
+    scanf("%d", &number);
+
+    return number;
+}
+
+void exitWithReason(string message) {
+    printf("%s", message);
+
+    exit(-1);
+}
+
+void printMatrix(int* matrix, uul cube) {
+    for (int i = 0; i < cube; i++) {
+        for (int x = 0; x < cube; x++) {
+            printf("%d ", matrix[cube*i + x]);
+        }
+        printf("\n");
+    }
+}

@@ -5,6 +5,8 @@
 #ifndef MATRIX_MULTIPLICATOR_MAIN_H
 #define MATRIX_MULTIPLICATOR_MAIN_H
 
+#include <stdbool.h>
+
 #define EOL "\n"
 #define TERM '\0'
 

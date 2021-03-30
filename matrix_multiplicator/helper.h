@@ -10,5 +10,7 @@
 uul seek(string stringToBeSearch, char stringOcc);
 string getSubstring(string stringToSplit, uul startIndex, uul finishIndex);
 int* stringToSubsetOfIntegers(string stringToSplit, string delimiter, int arraySize);
+int getDigitalInput(string message);
+void exitWithReason(string message);
 
 #endif //MATRIX_MULTIPLICATOR_HELPER_H

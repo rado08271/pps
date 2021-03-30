@@ -4,13 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/rafig/CLionProjects/matrix_multiplicator/file_reader.c" "C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/CMakeFiles/matrix_multiplicator.dir/file_reader.c.obj"
-  "C:/Users/rafig/CLionProjects/matrix_multiplicator/helper.c" "C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/CMakeFiles/matrix_multiplicator.dir/helper.c.obj"
-  "C:/Users/rafig/CLionProjects/matrix_multiplicator/main.c" "C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/CMakeFiles/matrix_multiplicator.dir/main.c.obj"
-  "C:/Users/rafig/CLionProjects/matrix_multiplicator/matrix_computer.c" "C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/CMakeFiles/matrix_multiplicator.dir/matrix_computer.c.obj"
-  "C:/Users/rafig/CLionProjects/matrix_multiplicator/matrix_reader.c" "C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/CMakeFiles/matrix_multiplicator.dir/matrix_reader.c.obj"
-  "C:/Users/rafig/CLionProjects/matrix_multiplicator/opencl_kernel_reader.c" "C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/CMakeFiles/matrix_multiplicator.dir/opencl_kernel_reader.c.obj"
-  "C:/Users/rafig/CLionProjects/matrix_multiplicator/opencl_utils.c" "C:/Users/rafig/CLionProjects/matrix_multiplicator/cmake-build-debug/CMakeFiles/matrix_multiplicator.dir/opencl_utils.c.obj"
+  "C:/Users/rafig/CLionProjects/pps/matrix_multiplicator/file_reader.c" "C:/Users/rafig/CLionProjects/pps/matrix_multiplicator/cmake-build-debug/CMakeFiles/matrix_multiplicator.dir/file_reader.c.obj"
+  "C:/Users/rafig/CLionProjects/pps/matrix_multiplicator/helper.c" "C:/Users/rafig/CLionProjects/pps/matrix_multiplicator/cmake-build-debug/CMakeFiles/matrix_multiplicator.dir/helper.c.obj"
+  "C:/Users/rafig/CLionProjects/pps/matrix_multiplicator/main.c" "C:/Users/rafig/CLionProjects/pps/matrix_multiplicator/cmake-build-debug/CMakeFiles/matrix_multiplicator.dir/main.c.obj"
+  "C:/Users/rafig/CLionProjects/pps/matrix_multiplicator/matrix_computer.c" "C:/Users/rafig/CLionProjects/pps/matrix_multiplicator/cmake-build-debug/CMakeFiles/matrix_multiplicator.dir/matrix_computer.c.obj"
+  "C:/Users/rafig/CLionProjects/pps/matrix_multiplicator/matrix_reader.c" "C:/Users/rafig/CLionProjects/pps/matrix_multiplicator/cmake-build-debug/CMakeFiles/matrix_multiplicator.dir/matrix_reader.c.obj"
+  "C:/Users/rafig/CLionProjects/pps/matrix_multiplicator/opencl_kernel_reader.c" "C:/Users/rafig/CLionProjects/pps/matrix_multiplicator/cmake-build-debug/CMakeFiles/matrix_multiplicator.dir/opencl_kernel_reader.c.obj"
+  "C:/Users/rafig/CLionProjects/pps/matrix_multiplicator/opencl_utils.c" "C:/Users/rafig/CLionProjects/pps/matrix_multiplicator/cmake-build-debug/CMakeFiles/matrix_multiplicator.dir/opencl_utils.c.obj"
+  "C:/Users/rafig/CLionProjects/pps/matrix_multiplicator/simple_timer.c" "C:/Users/rafig/CLionProjects/pps/matrix_multiplicator/cmake-build-debug/CMakeFiles/matrix_multiplicator.dir/simple_timer.c.obj"
+  "C:/Users/rafig/CLionProjects/pps/matrix_multiplicator/ui.c" "C:/Users/rafig/CLionProjects/pps/matrix_multiplicator/cmake-build-debug/CMakeFiles/matrix_multiplicator.dir/ui.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

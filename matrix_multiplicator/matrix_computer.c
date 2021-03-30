@@ -1,126 +1,216 @@
 #include <stdio.h>
 #include <CL/cl.h>
+#include <stdbool.h>
+#include <time.h>
 
 #include "matrix_computer.h"
 #include "opencl_kernel_reader.h"
 #include "opencl_utils.h"
+#include "simple_timer.h"
 
-int* computeMatrix(int* first, int* second) {
-    printf("\n");
-    printf("\n");
+int* computeMatrixIntStrassen(const int* first, const int* second, uul cube, bool isGenerated) {
+    startTimer();
+    printf("\n//TODO: Should be implemented");
+    stopTimer();
 
-    int rows = 4, cols = 3;
-    for (int i = 0; i < 3; i++){
-        for (int x = 0; x < 3; x++) {
-            int cellResult = 0;
-            for (int z = 0; z < 3; z++) {
-                cellResult += first[i*3 + z] * second[x + (z * 3)];
+    return (int*) first;
+}
+
+float* computeMatrixFloatStrassen(const float* first, const float* second, uul cube, bool isGenerated) {
+    startTimer();
+    printf("\n//TODO: Should be implemented");
+    stopTimer();
+
+    return (float*) first;
+}
+
+int* computeMatrixIntIJK(const int* first, const int* second, uul cube, bool isGenerated) {
+    printf("Computing matrix using IJK ...\n");
+
+
+    int* result = (int*) malloc(sizeof(int*) * cube*cube);
+
+    if (isGenerated) {
+        startTimer();
+
+        for (int i = 0; i < cube; i++){
+            for (int x = 0; x < cube; x++) {
+                int cellResult = 0;
+                for (int z = 0; z < cube; z++) {
+                    cellResult += first[i*cube + z] * second[x + (z * cube)];
+                }
+                result[cube*i+x] = cellResult;
             }
-            printf("%d ", cellResult);
-            printf("\t\t");
         }
-        printf("\n");
+
+        stopTimer();
+    } else {
+        printf("this won't work for this algorithm");
     }
 
-}
-int* computeMatrixWithKernel(const int* first, const int* second, uul firstCube, uul secondCube) {
-    const char* kernelSource = readMockedKernel();
-    cl_int err;
-    cl_event firstEvent;
 
-    cl_device_id device = chooseDevice();
+    return result;
+}
+
+float* computeMatrixFloatIJK(const float* first, const float* second, uul cube, bool isGenerated) {
+    printf("Computing matrix using IJK ...\n");
+
+    float* result = (float*) malloc(sizeof(int*) * cube*cube);
+
+    if (isGenerated) {
+        startTimer();
+
+        for (int i = 0; i < cube; i++){
+            for (int x = 0; x < cube; x++) {
+                float cellResult = 0;
+                for (int z = 0; z < cube; z++) {
+                    cellResult += first[i*cube + z] * second[x + (z * cube)];
+                }
+                result[cube*i+x] = cellResult;
+            }
+        }
+
+        stopTimer();
+    } else {
+        printf("this won't work for this algorithm");
+    }
+
+    return result;
+}
+
+int* computeMatrixIntWithKernel(const int* first, const int* second, uul bigCube, bool isGenerated, cl_device_id deviceId) {
+    int cube = (int) bigCube;
+    int* resultMatrix = (int*) malloc(sizeof(int*) * cube * cube);
+
+    string kernelSource = readMatrixMultiplierKernel();
+    cl_int err;
+
+    printf("\nInitialization and allocation for OpenCl");
+
+    cl_device_id device = deviceId;
     cl_context context = createContext(device);
     cl_command_queue queue = createExecutionOrder(context, device);
-
-    printf ("\nAllocating, %llu bytes of memory for first matrix\n", sizeof (first) * firstCube);
-    cl_mem memoryBufferForFirstMatrix = clCreateBuffer(context, CL_MEM_READ_WRITE, sizeof (first) * firstCube, NULL, &err);
-    if (err != CL_SUCCESS)
-        printf("\nMemory allocation failed with %d\n", err);
-    else
-        err = clEnqueueWriteBuffer(queue, memoryBufferForFirstMatrix, CL_FALSE, 0, sizeof(first) * firstCube, first, 0, NULL, &firstEvent);      // CONSIDER Using CL_TRUE to block execution
-
-    printf ("\nAllocating, %llu bytes of memory for second matrix\n", sizeof (second) * secondCube);
-    cl_mem memoryBufferForSecondMatrix = clCreateBuffer(context, CL_MEM_READ_WRITE, sizeof (second) * secondCube, NULL, &err);
-    if (err != CL_SUCCESS)
-        printf("\nMemory allocation failed with %d\n", err);
-    else
-        err = clEnqueueWriteBuffer(queue, memoryBufferForSecondMatrix, CL_FALSE, 0, sizeof(second) * secondCube, second, 0, NULL, &firstEvent);      // CONSIDER Using CL_TRUE to block execution
+    cl_program program = createProgram(context, kernelSource, device);
+    cl_kernel kernel = createProgramKernel(program, "matrixMul", device);
 
 
+    cl_mem memoryBufferForFirstMatrix = allocateMemory(context, sizeof (first) * cube * cube, true);
+    if (memoryBufferForFirstMatrix != NULL)
+        err = clEnqueueWriteBuffer(queue, memoryBufferForFirstMatrix, CL_TRUE, 0, sizeof (first) * cube * cube, first, 0, NULL, NULL);      // CL_TRUE = clEnqueueReadBuffer does not return until the buffer data has been read and copied into memory pointed to by ptr.
 
+    cl_mem memoryBufferForSecondMatrix = allocateMemory(context, sizeof (second) * cube * cube, true);
+    if (memoryBufferForSecondMatrix != NULL)
+        err = clEnqueueWriteBuffer(queue, memoryBufferForSecondMatrix, CL_TRUE, 0, sizeof (second) * cube * cube, second, 0, NULL, NULL);      // CL_TRUE = clEnqueueReadBuffer does not return until the buffer data has been read and copied into memory pointed to by ptr.
+
+    cl_mem memoryBufferForResultMatrix = allocateMemory(context, sizeof (resultMatrix) * cube * cube, false);
+    if (memoryBufferForSecondMatrix != NULL)
+        err = clEnqueueWriteBuffer(queue, memoryBufferForResultMatrix, CL_TRUE, 0, sizeof (resultMatrix) * cube * cube, resultMatrix, 0, NULL, NULL);      // CL_TRUE = clEnqueueReadBuffer does not return until the buffer data has been read and copied into memory pointed to by ptr.
+
+    err = clSetKernelArg(kernel, 0, sizeof(cl_mem), (void*) &memoryBufferForFirstMatrix);
+    err = clSetKernelArg(kernel, 1, sizeof(cl_mem), (void*) &memoryBufferForSecondMatrix);
+    err = clSetKernelArg(kernel, 2, sizeof(cl_mem), (void*) &memoryBufferForResultMatrix);
+    err = clSetKernelArg(kernel, 3, sizeof(int), (void*) &cube);
+    err = clSetKernelArg(kernel, 4, sizeof(int), (void*) &cube);
+
+    const size_t local[2] = {(size_t) 1, (size_t) 1};
+    const size_t global[2] = {(size_t) 2048, (size_t) cube};
+
+    printf("\nExecution of OpenCl");
+
+    startTimer();
+
+    runOpenClProgram(kernel, queue, local, global);
+
+    err = clEnqueueReadBuffer(queue, memoryBufferForResultMatrix, CL_TRUE, 0, sizeof (resultMatrix) * cube * cube, resultMatrix, 0, NULL, NULL);
+
+    if (err != CL_SUCCESS) {
+        printf("\nWhile reading error occured: %d\n", err);
+    }
+
+    clFinish(queue);
+
+    stopTimer();
+
+    printf("\nReleasing resources");
+
+    clReleaseDevice(device);
     clReleaseContext(context);
     clReleaseCommandQueue(queue);
+    clReleaseProgram(program);
+    clReleaseKernel(kernel);
+
+    clReleaseMemObject(memoryBufferForFirstMatrix);
+    clReleaseMemObject(memoryBufferForSecondMatrix);
+    clReleaseMemObject(memoryBufferForResultMatrix);
+
+    return resultMatrix;
 }
 
 
-void clCountMatrix() {
-    const char* kernelSource = readMockedKernel();
+float* computeMatrixFloatWithKernel(const float* first, const float* second, uul bigCube, bool isGenerated, cl_device_id deviceId) {
+    int cube = (int) bigCube;
+    float* resultMatrix = (float*) malloc(sizeof(float*) * cube * cube);
 
+    string kernelSource = readMatrixMultiplierKernel();
     cl_int err;
-    cl_platform_id platform = 0;
-    cl_device_id  device = 0;
-    cl_context  context = 0;
-    cl_command_queue queue = 0;
-    cl_program  program = NULL;
-    cl_kernel kernel = NULL;
-    cl_mem buffer;
-    float *data = (float*) malloc(sizeof(float*) * 5);
 
-//    data = [0.23f, 0.94f, 4.22f, 3.21f];
-    data[0] = 0.43f;
-    data[1] = 1.52f;
-    data[2] = 4.22f;
-    data[3] = 3.11f;
+    printf("\nInitialization and allocation for OpenCl");
 
-    // Configure the OpenCL environment
-    // get single CPU device to work with
-    err = clGetPlatformIDs(1, &platform, NULL);
-    printf("Platform ERR is: %d\n", err);
-    err = clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, 1, NULL, NULL);
-    printf("Check devices ERR is: %d\n", err);
-    err = clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, 1, &device, NULL);
-    printf("Get devices ERR is: %d\n", err);
+    cl_device_id device = deviceId;
+    cl_context context = createContext(device);
+    cl_command_queue queue = createExecutionOrder(context, device);
+    cl_program program = createProgram(context, kernelSource, device);
+    cl_kernel kernel = createProgramKernel(program, "matrixMulFloat", device);
 
-    // create context for device that will be sharing data
-    context = clCreateContext(NULL, 1, &device, NULL, NULL, &err);
-    printf("Context ERR is: %d\n", err);
 
-    // create queues for commands in (queue properties may be set to 0 for no external manipulation)
-    queue = clCreateCommandQueue(context, device, (cl_command_queue_properties) 0, &err);
-    printf("Queue ERR is: %d\n", err);
+    cl_mem memoryBufferForFirstMatrix = allocateMemory(context, sizeof (first) * cube * cube, true);
+    if (memoryBufferForFirstMatrix != NULL)
+        err = clEnqueueWriteBuffer(queue, memoryBufferForFirstMatrix, CL_TRUE, 0, sizeof (first) * cube * cube, first, 0, NULL, NULL);      // CL_TRUE = clEnqueueReadBuffer does not return until the buffer data has been read and copied into memory pointed to by ptr.
 
-    // compile and create program kernels
-    program = clCreateProgramWithSource(context, 1, &kernelSource, NULL, NULL);
-    printf("Program ERR is: %d\n", err);
-    err = clBuildProgram(program, 0, NULL, NULL, NULL, NULL);
-    printf("Building ERR is: %d\n", err);
+    cl_mem memoryBufferForSecondMatrix = allocateMemory(context, sizeof (second) * cube * cube, true);
+    if (memoryBufferForSecondMatrix != NULL)
+        err = clEnqueueWriteBuffer(queue, memoryBufferForSecondMatrix, CL_TRUE, 0, sizeof (second) * cube * cube, second, 0, NULL, NULL);      // CL_TRUE = clEnqueueReadBuffer does not return until the buffer data has been read and copied into memory pointed to by ptr.
 
-    // initialize kernel for program and it's source
-    kernel = clCreateKernel(program, "computeMatrix", &err);
-    printf("kernel ERR is: %d\n", err);
+    cl_mem memoryBufferForResultMatrix = allocateMemory(context, sizeof (resultMatrix) * cube * cube, false);
+    if (memoryBufferForSecondMatrix != NULL)
+        err = clEnqueueWriteBuffer(queue, memoryBufferForResultMatrix, CL_TRUE, 0, sizeof (resultMatrix) * cube * cube, resultMatrix, 0, NULL, NULL);      // CL_TRUE = clEnqueueReadBuffer does not return until the buffer data has been read and copied into memory pointed to by ptr.
 
-    // create memory objects for enqueuing
-    buffer = clCreateBuffer(context, CL_MEM_READ_WRITE, 4*sizeof(*data), NULL, &err);
-    printf("Buffer ERR is: %d\n", err);
+    err = clSetKernelArg(kernel, 0, sizeof(cl_mem), (void*) &memoryBufferForFirstMatrix);
+    err = clSetKernelArg(kernel, 1, sizeof(cl_mem), (void*) &memoryBufferForSecondMatrix);
+    err = clSetKernelArg(kernel, 2, sizeof(cl_mem), (void*) &memoryBufferForResultMatrix);
+    err = clSetKernelArg(kernel, 3, sizeof(int), (void*) &cube);
+    err = clSetKernelArg(kernel, 4, sizeof(int), (void*) &cube);
 
-    // write data for GPU to work with (arguments)
-    err = clEnqueueWriteBuffer(queue, buffer, CL_FALSE, 0, SIZE_MAX, data, 0, NULL, NULL);
-    printf("Write ERR is: %d\n", err);
+    const size_t local[2] = {(size_t) 1, (size_t) 1};
+    const size_t global[2] = {(size_t) 2048, (size_t) cube};
 
-    // set kernel arguments
-    err = clSetKernelArg(kernel, 0, sizeof(float*), &buffer);
-    printf("ERR is: %d\n", err);
+    printf("\nExecution of OpenCl");
 
-    // enqueue execution of kernel
-    size_t globalDimensions[] = {100, 0, 0};
-    err = clEnqueueNDRangeKernel(queue, kernel, 1, NULL, globalDimensions, NULL, 0, NULL, NULL);
-    printf("Range kernel ERR is: %d\n", err);
+    startTimer();
 
-    // read the data from gpu to cpu
-    err = clEnqueueReadBuffer(queue, buffer, CL_FALSE, 0, sizeof(cl_float) * 100, data, 0, NULL, NULL);
-    printf("Read ERR is: %d\n", err);
+    runOpenClProgram(kernel, queue, local, global);
 
-    // async wait for executed stack
-    err = clFinish(queue);
-    printf("FINISHED err is: %d\n", err);
+    err = clEnqueueReadBuffer(queue, memoryBufferForResultMatrix, CL_TRUE, 0, sizeof (resultMatrix) * cube * cube, resultMatrix, 0, NULL, NULL);
+
+    if (err != CL_SUCCESS) {
+        printf("\nWhile reading error occured: %d\n", err);
+    }
+
+    clFinish(queue);
+
+    stopTimer();
+
+    printf("\nReleasing resources");
+
+    clReleaseDevice(device);
+    clReleaseContext(context);
+    clReleaseCommandQueue(queue);
+    clReleaseProgram(program);
+    clReleaseKernel(kernel);
+
+    clReleaseMemObject(memoryBufferForFirstMatrix);
+    clReleaseMemObject(memoryBufferForSecondMatrix);
+    clReleaseMemObject(memoryBufferForResultMatrix);
+
+    return resultMatrix;
 }

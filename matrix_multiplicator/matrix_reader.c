@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
+#include <time.h>
 
 #include "helper.h"
 
@@ -52,10 +53,9 @@ int* readMatrix(string matrix, uul rows, uul cols) {
 
     string temp, p = strtok_r(matrix, EOL, &temp);
     do {
+        int* array = stringToSubsetOfIntegers(p, "\t", cols*2+2*sizeof(string));
 
-        int* array = stringToSubsetOfIntegers(p, "\t", cols);
-
-        for (int idx = 0 ; idx <= (sizeof(&array) / sizeof(array[0])); idx++) {
+        for (int idx = 0 ; idx < cols; idx++) {
             if (addrIdx > rows * cols) {
                 printf("An error occurred wile working with matrix");
                 return NULL;
@@ -86,5 +86,70 @@ int getMatrix(string matrixData, int** firstMatrix, int** secondMatrix) {
 
     checkMatrix(first, second, &*firstMatrix, &*secondMatrix);
 
-    return 1;
+    if (getCols(first) * getCols(second) != getRows(first) * getRows(second))
+        return -1;
+
+    return getCols(first);
+}
+
+string convertMatrixToString(int* matrix, uul cube) {
+    string translatedMatrix = (string) malloc(sizeof(string) * cube*cube*cube);
+    strcpy(translatedMatrix, "");
+
+    for (int row = 0; row < cube;) {
+        for (int col = 0; col < cube;) {
+            char translatedCell[2];
+            itoa(matrix[cube*row + col], translatedCell, 10);
+
+            strcat(translatedMatrix, translatedCell);
+            if (col++ < cube-1)
+                strcat(translatedMatrix, "\t");
+        }
+        if (row++ < cube-1)
+            strcat(translatedMatrix, "\n");
+    }
+
+    return translatedMatrix;
+}
+
+int* generateRandomIntMatrix(uul cube) {
+    int* matrix = (int*) malloc(sizeof(int*) * cube*cube);
+
+    for (int row = 0; row < cube*cube; row++) {
+//        matrix[row]= (int) (rand() % 10);
+        matrix[row]= row % cube + 1;
+    }
+
+    return matrix;
+}
+
+float* generateRandomFloatMatrix(uul cube) {
+    float* matrix = (float*) malloc(sizeof(float*) * cube*cube);
+
+    for (int row = 0; row < cube*cube; row++) {
+//        matrix[row]= (int) (rand() % 10);
+        matrix[row]= (float) (row % cube) + 0.1f;
+    }
+
+    return matrix;
+}
+
+string createRandomMatrix(uul firstCube, uul secondCube) {
+    int* firstMatrix = generateRandomIntMatrix(firstCube);
+    int* secondMatrix = generateRandomIntMatrix(secondCube);
+    string translatedFirstMatrix = convertMatrixToString(firstMatrix, firstCube);
+    string translatedSecondMatrix = convertMatrixToString(secondMatrix, secondCube);
+
+    string fileContent = (string) malloc(sizeof(string) * strlen(translatedFirstMatrix) + strlen(translatedSecondMatrix) +2);
+    strcpy(fileContent, "");
+    strcat(fileContent, translatedFirstMatrix);
+    strcat(fileContent, "\n*\n");
+    strcat(fileContent, translatedSecondMatrix);
+
+    free(firstMatrix);
+    free(secondMatrix);
+    free(translatedFirstMatrix);
+    free(translatedSecondMatrix);
+
+    return fileContent;
 }

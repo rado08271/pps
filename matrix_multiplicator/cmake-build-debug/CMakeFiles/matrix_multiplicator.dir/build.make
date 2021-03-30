@@ -62,10 +62,10 @@ RM = "D:\CLion\CLion 2020.3.1\bin\cmake\win\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\rafig\CLionProjects\matrix_multiplicator
+CMAKE_SOURCE_DIR = C:\Users\rafig\CLionProjects\pps\matrix_multiplicator
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\rafig\CLionProjects\matrix_multiplicator\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/matrix_multiplicator.dir/depend.make
@@ -79,100 +79,128 @@ include CMakeFiles/matrix_multiplicator.dir/flags.make
 CMakeFiles/matrix_multiplicator.dir/main.c.obj: CMakeFiles/matrix_multiplicator.dir/flags.make
 CMakeFiles/matrix_multiplicator.dir/main.c.obj: CMakeFiles/matrix_multiplicator.dir/includes_C.rsp
 CMakeFiles/matrix_multiplicator.dir/main.c.obj: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rafig\CLionProjects\matrix_multiplicator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/matrix_multiplicator.dir/main.c.obj"
-	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matrix_multiplicator.dir\main.c.obj   -c C:\Users\rafig\CLionProjects\matrix_multiplicator\main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/matrix_multiplicator.dir/main.c.obj"
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matrix_multiplicator.dir\main.c.obj   -c C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\main.c
 
 CMakeFiles/matrix_multiplicator.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/matrix_multiplicator.dir/main.c.i"
-	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\rafig\CLionProjects\matrix_multiplicator\main.c > CMakeFiles\matrix_multiplicator.dir\main.c.i
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\main.c > CMakeFiles\matrix_multiplicator.dir\main.c.i
 
 CMakeFiles/matrix_multiplicator.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/matrix_multiplicator.dir/main.c.s"
-	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\rafig\CLionProjects\matrix_multiplicator\main.c -o CMakeFiles\matrix_multiplicator.dir\main.c.s
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\main.c -o CMakeFiles\matrix_multiplicator.dir\main.c.s
 
 CMakeFiles/matrix_multiplicator.dir/file_reader.c.obj: CMakeFiles/matrix_multiplicator.dir/flags.make
 CMakeFiles/matrix_multiplicator.dir/file_reader.c.obj: CMakeFiles/matrix_multiplicator.dir/includes_C.rsp
 CMakeFiles/matrix_multiplicator.dir/file_reader.c.obj: ../file_reader.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rafig\CLionProjects\matrix_multiplicator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/matrix_multiplicator.dir/file_reader.c.obj"
-	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matrix_multiplicator.dir\file_reader.c.obj   -c C:\Users\rafig\CLionProjects\matrix_multiplicator\file_reader.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/matrix_multiplicator.dir/file_reader.c.obj"
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matrix_multiplicator.dir\file_reader.c.obj   -c C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\file_reader.c
 
 CMakeFiles/matrix_multiplicator.dir/file_reader.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/matrix_multiplicator.dir/file_reader.c.i"
-	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\rafig\CLionProjects\matrix_multiplicator\file_reader.c > CMakeFiles\matrix_multiplicator.dir\file_reader.c.i
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\file_reader.c > CMakeFiles\matrix_multiplicator.dir\file_reader.c.i
 
 CMakeFiles/matrix_multiplicator.dir/file_reader.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/matrix_multiplicator.dir/file_reader.c.s"
-	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\rafig\CLionProjects\matrix_multiplicator\file_reader.c -o CMakeFiles\matrix_multiplicator.dir\file_reader.c.s
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\file_reader.c -o CMakeFiles\matrix_multiplicator.dir\file_reader.c.s
 
 CMakeFiles/matrix_multiplicator.dir/matrix_reader.c.obj: CMakeFiles/matrix_multiplicator.dir/flags.make
 CMakeFiles/matrix_multiplicator.dir/matrix_reader.c.obj: CMakeFiles/matrix_multiplicator.dir/includes_C.rsp
 CMakeFiles/matrix_multiplicator.dir/matrix_reader.c.obj: ../matrix_reader.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rafig\CLionProjects\matrix_multiplicator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/matrix_multiplicator.dir/matrix_reader.c.obj"
-	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matrix_multiplicator.dir\matrix_reader.c.obj   -c C:\Users\rafig\CLionProjects\matrix_multiplicator\matrix_reader.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/matrix_multiplicator.dir/matrix_reader.c.obj"
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matrix_multiplicator.dir\matrix_reader.c.obj   -c C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\matrix_reader.c
 
 CMakeFiles/matrix_multiplicator.dir/matrix_reader.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/matrix_multiplicator.dir/matrix_reader.c.i"
-	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\rafig\CLionProjects\matrix_multiplicator\matrix_reader.c > CMakeFiles\matrix_multiplicator.dir\matrix_reader.c.i
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\matrix_reader.c > CMakeFiles\matrix_multiplicator.dir\matrix_reader.c.i
 
 CMakeFiles/matrix_multiplicator.dir/matrix_reader.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/matrix_multiplicator.dir/matrix_reader.c.s"
-	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\rafig\CLionProjects\matrix_multiplicator\matrix_reader.c -o CMakeFiles\matrix_multiplicator.dir\matrix_reader.c.s
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\matrix_reader.c -o CMakeFiles\matrix_multiplicator.dir\matrix_reader.c.s
 
 CMakeFiles/matrix_multiplicator.dir/helper.c.obj: CMakeFiles/matrix_multiplicator.dir/flags.make
 CMakeFiles/matrix_multiplicator.dir/helper.c.obj: CMakeFiles/matrix_multiplicator.dir/includes_C.rsp
 CMakeFiles/matrix_multiplicator.dir/helper.c.obj: ../helper.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rafig\CLionProjects\matrix_multiplicator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/matrix_multiplicator.dir/helper.c.obj"
-	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matrix_multiplicator.dir\helper.c.obj   -c C:\Users\rafig\CLionProjects\matrix_multiplicator\helper.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/matrix_multiplicator.dir/helper.c.obj"
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matrix_multiplicator.dir\helper.c.obj   -c C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\helper.c
 
 CMakeFiles/matrix_multiplicator.dir/helper.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/matrix_multiplicator.dir/helper.c.i"
-	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\rafig\CLionProjects\matrix_multiplicator\helper.c > CMakeFiles\matrix_multiplicator.dir\helper.c.i
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\helper.c > CMakeFiles\matrix_multiplicator.dir\helper.c.i
 
 CMakeFiles/matrix_multiplicator.dir/helper.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/matrix_multiplicator.dir/helper.c.s"
-	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\rafig\CLionProjects\matrix_multiplicator\helper.c -o CMakeFiles\matrix_multiplicator.dir\helper.c.s
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\helper.c -o CMakeFiles\matrix_multiplicator.dir\helper.c.s
 
 CMakeFiles/matrix_multiplicator.dir/matrix_computer.c.obj: CMakeFiles/matrix_multiplicator.dir/flags.make
 CMakeFiles/matrix_multiplicator.dir/matrix_computer.c.obj: CMakeFiles/matrix_multiplicator.dir/includes_C.rsp
 CMakeFiles/matrix_multiplicator.dir/matrix_computer.c.obj: ../matrix_computer.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rafig\CLionProjects\matrix_multiplicator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/matrix_multiplicator.dir/matrix_computer.c.obj"
-	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matrix_multiplicator.dir\matrix_computer.c.obj   -c C:\Users\rafig\CLionProjects\matrix_multiplicator\matrix_computer.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/matrix_multiplicator.dir/matrix_computer.c.obj"
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matrix_multiplicator.dir\matrix_computer.c.obj   -c C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\matrix_computer.c
 
 CMakeFiles/matrix_multiplicator.dir/matrix_computer.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/matrix_multiplicator.dir/matrix_computer.c.i"
-	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\rafig\CLionProjects\matrix_multiplicator\matrix_computer.c > CMakeFiles\matrix_multiplicator.dir\matrix_computer.c.i
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\matrix_computer.c > CMakeFiles\matrix_multiplicator.dir\matrix_computer.c.i
 
 CMakeFiles/matrix_multiplicator.dir/matrix_computer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/matrix_multiplicator.dir/matrix_computer.c.s"
-	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\rafig\CLionProjects\matrix_multiplicator\matrix_computer.c -o CMakeFiles\matrix_multiplicator.dir\matrix_computer.c.s
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\matrix_computer.c -o CMakeFiles\matrix_multiplicator.dir\matrix_computer.c.s
 
 CMakeFiles/matrix_multiplicator.dir/opencl_kernel_reader.c.obj: CMakeFiles/matrix_multiplicator.dir/flags.make
 CMakeFiles/matrix_multiplicator.dir/opencl_kernel_reader.c.obj: CMakeFiles/matrix_multiplicator.dir/includes_C.rsp
 CMakeFiles/matrix_multiplicator.dir/opencl_kernel_reader.c.obj: ../opencl_kernel_reader.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rafig\CLionProjects\matrix_multiplicator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/matrix_multiplicator.dir/opencl_kernel_reader.c.obj"
-	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matrix_multiplicator.dir\opencl_kernel_reader.c.obj   -c C:\Users\rafig\CLionProjects\matrix_multiplicator\opencl_kernel_reader.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/matrix_multiplicator.dir/opencl_kernel_reader.c.obj"
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matrix_multiplicator.dir\opencl_kernel_reader.c.obj   -c C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\opencl_kernel_reader.c
 
 CMakeFiles/matrix_multiplicator.dir/opencl_kernel_reader.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/matrix_multiplicator.dir/opencl_kernel_reader.c.i"
-	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\rafig\CLionProjects\matrix_multiplicator\opencl_kernel_reader.c > CMakeFiles\matrix_multiplicator.dir\opencl_kernel_reader.c.i
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\opencl_kernel_reader.c > CMakeFiles\matrix_multiplicator.dir\opencl_kernel_reader.c.i
 
 CMakeFiles/matrix_multiplicator.dir/opencl_kernel_reader.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/matrix_multiplicator.dir/opencl_kernel_reader.c.s"
-	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\rafig\CLionProjects\matrix_multiplicator\opencl_kernel_reader.c -o CMakeFiles\matrix_multiplicator.dir\opencl_kernel_reader.c.s
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\opencl_kernel_reader.c -o CMakeFiles\matrix_multiplicator.dir\opencl_kernel_reader.c.s
 
 CMakeFiles/matrix_multiplicator.dir/opencl_utils.c.obj: CMakeFiles/matrix_multiplicator.dir/flags.make
 CMakeFiles/matrix_multiplicator.dir/opencl_utils.c.obj: CMakeFiles/matrix_multiplicator.dir/includes_C.rsp
 CMakeFiles/matrix_multiplicator.dir/opencl_utils.c.obj: ../opencl_utils.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rafig\CLionProjects\matrix_multiplicator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/matrix_multiplicator.dir/opencl_utils.c.obj"
-	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matrix_multiplicator.dir\opencl_utils.c.obj   -c C:\Users\rafig\CLionProjects\matrix_multiplicator\opencl_utils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/matrix_multiplicator.dir/opencl_utils.c.obj"
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matrix_multiplicator.dir\opencl_utils.c.obj   -c C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\opencl_utils.c
 
 CMakeFiles/matrix_multiplicator.dir/opencl_utils.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/matrix_multiplicator.dir/opencl_utils.c.i"
-	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\rafig\CLionProjects\matrix_multiplicator\opencl_utils.c > CMakeFiles\matrix_multiplicator.dir\opencl_utils.c.i
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\opencl_utils.c > CMakeFiles\matrix_multiplicator.dir\opencl_utils.c.i
 
 CMakeFiles/matrix_multiplicator.dir/opencl_utils.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/matrix_multiplicator.dir/opencl_utils.c.s"
-	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\rafig\CLionProjects\matrix_multiplicator\opencl_utils.c -o CMakeFiles\matrix_multiplicator.dir\opencl_utils.c.s
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\opencl_utils.c -o CMakeFiles\matrix_multiplicator.dir\opencl_utils.c.s
+
+CMakeFiles/matrix_multiplicator.dir/ui.c.obj: CMakeFiles/matrix_multiplicator.dir/flags.make
+CMakeFiles/matrix_multiplicator.dir/ui.c.obj: CMakeFiles/matrix_multiplicator.dir/includes_C.rsp
+CMakeFiles/matrix_multiplicator.dir/ui.c.obj: ../ui.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/matrix_multiplicator.dir/ui.c.obj"
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matrix_multiplicator.dir\ui.c.obj   -c C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\ui.c
+
+CMakeFiles/matrix_multiplicator.dir/ui.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/matrix_multiplicator.dir/ui.c.i"
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\ui.c > CMakeFiles\matrix_multiplicator.dir\ui.c.i
+
+CMakeFiles/matrix_multiplicator.dir/ui.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/matrix_multiplicator.dir/ui.c.s"
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\ui.c -o CMakeFiles\matrix_multiplicator.dir\ui.c.s
+
+CMakeFiles/matrix_multiplicator.dir/simple_timer.c.obj: CMakeFiles/matrix_multiplicator.dir/flags.make
+CMakeFiles/matrix_multiplicator.dir/simple_timer.c.obj: CMakeFiles/matrix_multiplicator.dir/includes_C.rsp
+CMakeFiles/matrix_multiplicator.dir/simple_timer.c.obj: ../simple_timer.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/matrix_multiplicator.dir/simple_timer.c.obj"
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matrix_multiplicator.dir\simple_timer.c.obj   -c C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\simple_timer.c
+
+CMakeFiles/matrix_multiplicator.dir/simple_timer.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/matrix_multiplicator.dir/simple_timer.c.i"
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\simple_timer.c > CMakeFiles\matrix_multiplicator.dir\simple_timer.c.i
+
+CMakeFiles/matrix_multiplicator.dir/simple_timer.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/matrix_multiplicator.dir/simple_timer.c.s"
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\simple_timer.c -o CMakeFiles\matrix_multiplicator.dir\simple_timer.c.s
 
 # Object files for target matrix_multiplicator
 matrix_multiplicator_OBJECTS = \
@@ -182,7 +210,9 @@ matrix_multiplicator_OBJECTS = \
 "CMakeFiles/matrix_multiplicator.dir/helper.c.obj" \
 "CMakeFiles/matrix_multiplicator.dir/matrix_computer.c.obj" \
 "CMakeFiles/matrix_multiplicator.dir/opencl_kernel_reader.c.obj" \
-"CMakeFiles/matrix_multiplicator.dir/opencl_utils.c.obj"
+"CMakeFiles/matrix_multiplicator.dir/opencl_utils.c.obj" \
+"CMakeFiles/matrix_multiplicator.dir/ui.c.obj" \
+"CMakeFiles/matrix_multiplicator.dir/simple_timer.c.obj"
 
 # External object files for target matrix_multiplicator
 matrix_multiplicator_EXTERNAL_OBJECTS =
@@ -194,12 +224,14 @@ matrix_multiplicator.exe: CMakeFiles/matrix_multiplicator.dir/helper.c.obj
 matrix_multiplicator.exe: CMakeFiles/matrix_multiplicator.dir/matrix_computer.c.obj
 matrix_multiplicator.exe: CMakeFiles/matrix_multiplicator.dir/opencl_kernel_reader.c.obj
 matrix_multiplicator.exe: CMakeFiles/matrix_multiplicator.dir/opencl_utils.c.obj
+matrix_multiplicator.exe: CMakeFiles/matrix_multiplicator.dir/ui.c.obj
+matrix_multiplicator.exe: CMakeFiles/matrix_multiplicator.dir/simple_timer.c.obj
 matrix_multiplicator.exe: CMakeFiles/matrix_multiplicator.dir/build.make
 matrix_multiplicator.exe: C:/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v11.2/lib/x64/OpenCL.lib
 matrix_multiplicator.exe: CMakeFiles/matrix_multiplicator.dir/linklibs.rsp
 matrix_multiplicator.exe: CMakeFiles/matrix_multiplicator.dir/objects1.rsp
 matrix_multiplicator.exe: CMakeFiles/matrix_multiplicator.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\rafig\CLionProjects\matrix_multiplicator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking C executable matrix_multiplicator.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C executable matrix_multiplicator.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\matrix_multiplicator.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -212,6 +244,6 @@ CMakeFiles/matrix_multiplicator.dir/clean:
 .PHONY : CMakeFiles/matrix_multiplicator.dir/clean
 
 CMakeFiles/matrix_multiplicator.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\rafig\CLionProjects\matrix_multiplicator C:\Users\rafig\CLionProjects\matrix_multiplicator C:\Users\rafig\CLionProjects\matrix_multiplicator\cmake-build-debug C:\Users\rafig\CLionProjects\matrix_multiplicator\cmake-build-debug C:\Users\rafig\CLionProjects\matrix_multiplicator\cmake-build-debug\CMakeFiles\matrix_multiplicator.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\rafig\CLionProjects\pps\matrix_multiplicator C:\Users\rafig\CLionProjects\pps\matrix_multiplicator C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\cmake-build-debug C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\cmake-build-debug C:\Users\rafig\CLionProjects\pps\matrix_multiplicator\cmake-build-debug\CMakeFiles\matrix_multiplicator.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/matrix_multiplicator.dir/depend
 

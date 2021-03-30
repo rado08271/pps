@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char* readFile(const char* filePath) {
+char* readFile(string filePath) {
     char *buffer = NULL;
     int string_size, read_size;
     FILE *handler = fopen(filePath, "r");
@@ -25,3 +25,16 @@ char* readFile(const char* filePath) {
     return buffer;
 }
 
+int printToFile(string filePath, string content) {
+    FILE *handler = fopen(filePath, "wb+");
+
+    if (handler) {
+        fputs(content, handler);
+
+        fclose(handler);
+        return 1;
+    } else {
+        printf("File does not exist");
+        return -1;
+    }
+}

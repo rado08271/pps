@@ -3,6 +3,7 @@
 
 #include "main.h"
 
-char* readFile(const char* filePath);
+char* readFile(string filePath);
+int printToFile(string filePath, string content);
 
 #endif //MATRIX_MULTIPLICATOR_FILE_READER_H
