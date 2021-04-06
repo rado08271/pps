@@ -1,3 +1,6 @@
-/.idea
 /matrix_multiplicator/.idea
 /matrix_multiplicator/cmake-build-debug
+/bruteforce/.idea
+/bruteforce/cmake-build-debug
+/.idea/
+/bruteforce/*.lst

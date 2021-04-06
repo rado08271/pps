@@ -1,3 +1,0 @@
-C:/Users/rafig/CLionProjects/pps/matrix_multiplicator/cmake-build-debug/CMakeFiles/matrix_multiplicator.dir
-C:/Users/rafig/CLionProjects/pps/matrix_multiplicator/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/rafig/CLionProjects/pps/matrix_multiplicator/cmake-build-debug/CMakeFiles/rebuild_cache.dir
