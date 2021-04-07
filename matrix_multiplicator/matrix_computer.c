@@ -112,8 +112,8 @@ int* computeMatrixIntWithKernel(const int* first, const int* second, uul bigCube
     err = clSetKernelArg(kernel, 3, sizeof(int), (void*) &cube);
     err = clSetKernelArg(kernel, 4, sizeof(int), (void*) &cube);
 
-    const size_t local[2] = {(size_t) 1, (size_t) 1};
-    const size_t global[2] = {(size_t) 2048, (size_t) cube};
+    const size_t local[2] = {(size_t) 32, (size_t) 32};
+    const size_t global[2] = {(size_t) getWorkerGroupSize(cube), (size_t) getWorkerGroupSize(cube)};
 
     printf("\nExecution of OpenCl");
 

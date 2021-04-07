@@ -10,7 +10,7 @@
 #include "simple_timer.h"
 #include "opencl_utils.h"
 
-#define INCLUDE_UI 1
+#define INCLUDE_UI 0
 
 int main() {
     srand(time(0));
@@ -158,39 +158,42 @@ int main() {
             free(fileContent);
         }
     } else if (INCLUDE_UI == 0) {
-        cubeSize = 10;
+        cubeSize = 2000;
 
         firstMatrixInt = generateRandomIntMatrix(cubeSize);
         secondMatrixInt = generateRandomIntMatrix(cubeSize);
 
-        int *result = computeMatrixIntWithKernel(firstMatrixInt, secondMatrixInt, cubeSize, true, chooseBestDevice());
+        resultMatrixInt = computeMatrixIntWithKernel(firstMatrixInt, secondMatrixInt, cubeSize, true, chooseBestDevice());
 
-        showResult = true;
+        showResult = false;
+        isInteger = true;
     }
 
-    showResult = false;
+    showResult = true;
     if (showResult) {
         if (isInteger) {
-            printf("\n\n========= First =========\n\n");
-            for (int i = 0; i < cubeSize; i++) {
-                for (int x = 0; x < cubeSize; x++) {
-                    printf("%d ", secondMatrixInt[cubeSize * i + x]);
-                }
-                printf("\n");
-            }
-
-            printf("\n\n========= Second =========\n\n");
-            for (int i = 0; i < cubeSize; i++) {
-                for (int x = 0; x < cubeSize; x++) {
-                    printf("%d ", secondMatrixInt[cubeSize * i + x]);
-                }
-                printf("\n");
-            }
-
+//            printf("\n\n========= First =========\n\n");
+//            for (int i = 0; i < cubeSize; i++) {
+//                for (int x = 0; x < cubeSize; x++) {
+//                    printf("%d ", secondMatrixInt[cubeSize * i + x]);
+//                }
+//                printf("\n");
+//            }
+//
+//            printf("\n\n========= Second =========\n\n");
+//            for (int i = 0; i < cubeSize; i++) {
+//                for (int x = 0; x < cubeSize; x++) {
+//                    printf("%d ", secondMatrixInt[cubeSize * i + x]);
+//                }
+//                printf("\n");
+//            }
+//
             printf("\n\n========= Result =========\n\n");
             for (int i = 0; i < cubeSize; i++) {
                 for (int x = 0; x < cubeSize; x++) {
                     printf("%d ", resultMatrixInt[cubeSize * i + x]);
+                    printf("%d ", resultMatrixInt[cubeSize * i + (cubeSize -1)]);
+                    break;
                 }
                 printf("\n");
             }

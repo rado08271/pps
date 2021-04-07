@@ -6,14 +6,6 @@ string readKernel(string kernel) {
 }
 
 string readMatrixMultiplierKernel() {
-    return readKernel("../matrix_mult");
+    return readKernel("../kernel.cl");
 }
 
-string readMockedKernel() {
-    return (string) {
-        "kernel void computeMatrix(global float *data) {\n"
-        "   int id = get_global_id(0);\n"
-        "   data[id] = sin(data[id]);\n"
-        "}\n"
-    };
-}

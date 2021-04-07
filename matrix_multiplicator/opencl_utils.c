@@ -512,3 +512,13 @@ cl_device_id chooseDevice() {
 
     return device;
 }
+
+size_t getWorkerGroupSize(int closestNumber) {
+    for (size_t i = 1 ; ; i*=2) {
+        if (closestNumber < i) {
+            printf("\nClosest to %d is %zu", closestNumber, i);
+            return i;
+        }
+    }
+
+}

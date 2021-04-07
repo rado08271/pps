@@ -117,7 +117,7 @@ int* generateRandomIntMatrix(uul cube) {
 
     for (int row = 0; row < cube*cube; row++) {
 //        matrix[row]= (int) (rand() % 10);
-        matrix[row]= row % cube + 1;
+        matrix[row]= row %10 +1;
     }
 
     return matrix;

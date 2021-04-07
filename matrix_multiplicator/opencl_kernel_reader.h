@@ -5,6 +5,5 @@
 #include "main.h"
 
 string readMatrixMultiplierKernel();
-string readMockedKernel();
 
 #endif //MATRIX_MULTIPLICATOR_OPENCL_KERNEL_READER_H
