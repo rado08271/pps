@@ -8,13 +8,8 @@ __kernel void matrixMul(
           __global int* firstMatrix,
           __global int* secondMatrix,
           __global int* resultMatrix,
-          int cube, int helperCube) {
+          int cube) {
   
-
-//    for (int i = 0; i < cube; i++){
-//        resultMatrix[index] = firstMatrix[i * cube] + second[i*cube);
-//    }
-
     int row = get_global_id(0);
     int col = get_global_id(1);
     int cellResult = 0;
@@ -29,12 +24,7 @@ __kernel void matrixMulFloat(
           __global float* firstMatrix,
           __global float* secondMatrix,
           __global float* resultMatrix,
-          int cube, int helperCube) {
-
-
-//    for (int i = 0; i < cube; i++){
-//        resultMatrix[index] = firstMatrix[i * cube] + second[i*cube);
-//    }
+          int cube) {
 
     int row = get_global_id(0);
     int col = get_global_id(1);

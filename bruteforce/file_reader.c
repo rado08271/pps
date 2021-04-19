@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-string* readDictionary(string path, uul* entries) {
+string* readDictionary(string path, uul* entries, size_t* memory) {
     FILE *file = fopen(path, "r");
 
     size_t bufferLength = 1024;
@@ -24,7 +24,9 @@ string* readDictionary(string path, uul* entries) {
     while (fgets(buffer, bufferLength, file)) {
         buffer[strcspn(buffer, "\n")] = 0;
         dictionary[currentIdx] = (string) calloc(sizeof(buffer)/sizeof(buffer[0]), sizeof(char));
-        strcpy(dictionary[currentIdx++], buffer);
+        strcpy(dictionary[currentIdx], buffer);
+        *memory+=(strlen(dictionary[currentIdx]));
+        currentIdx++;
     }
 
     *entries = currentIdx;

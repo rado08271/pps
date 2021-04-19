@@ -4,8 +4,8 @@
 
 int main()
 {
-    FILE *fIn = fopen("C:\\Users\\Paly\\CLionProjects\\pps\\edgeDeteciton\\obrazek.bmp", "rb");
-    FILE *fOut = fopen("C:\\Users\\Paly\\CLionProjects\\pps\\edgeDeteciton\\obrazek2.bmp", "wb");
+    FILE *fIn = fopen("../obrazek.bmp", "rb");
+    FILE *fOut = fopen("../obrazek2.bmp", "wb");
     if (!fIn || !fOut)
     {
         printf("File error.\n");

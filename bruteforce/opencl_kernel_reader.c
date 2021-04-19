@@ -6,6 +6,6 @@ string readKernel(string kernel) {
 }
 
 string readBruteForceKernel() {
-    return readKernel("../bruteforce.cl");
+    return readKernel("../kernel.cl");
 }
 

@@ -11,38 +11,58 @@
 #include "ui.h"
 #include "opencl_utils.h"
 
-#define INCLUDE_UI 1
+#define INCLUDE_UI 2
 
 int main() {
+    uul dicSize = 0;
+    size_t memory = 0;
 
-    string possibleCharacters = "0123456789abcdef";
-    // FIXME: It failes for more than 16 on MSI!!!
+    string* dictionary = NULL;
 
-    int maxLength = 10;
+    const string possibleCharacters = "abcdef";
+    string password = "abc123";
+    const int maxLength = strlen(password);
     uul attempts = 0;
 
     if (INCLUDE_UI == 1) {
-        string password = generateUIForPasswordInput();
+        password = generateUIForPasswordInput(maxLength, possibleCharacters);
+        password = checkPassword(password, possibleCharacters, maxLength);
 
         // TODO: Check password is OK
         if (password != NULL) {
-            printf("\nThere are %llu possible solutions for password at max length of %d\n", (uul) getPossibleInvokes(possibleCharacters, maxLength), maxLength);
-            int answer = generateUiForBruteAttackProceedings();
+            int answer = generateUIForDictionary();
 
             if (answer == 1) {
-                int answer = generateUiForBruteAttack();
+                dictionary = readDictionary("../simple.lst", &dicSize, &memory);
+            } else if (answer == 2) {
+                dictionary = readDictionary("../advanced.lst", &dicSize, &memory);
+            }
+
+            printf("\nThere are %llu possible solutions for password at max length of %d\n", (uul) getPossibleInvokes(possibleCharacters, maxLength) + dicSize, maxLength);
+            answer = generateUiForBruteAttackProceedings();
+
+            if (answer == 1) {
+                answer = generateUiForBruteAttack();
 
                 if (answer == 1) {
                     answer = generateUIForDeviceChoosing();
 
                     if (answer == 1) {
-                        computeMatrixIntWithKernel(password, possibleCharacters, maxLength, chooseDevice());
+                        if (dictionary != NULL) {
+                            bruteForcePasswordGuesserDictionary(password, maxLength, dictionary, dicSize, memory, &attempts, chooseDevice());
+                        } else {
+                            bruteForcePasswordGuesser(password, possibleCharacters, maxLength, &attempts, chooseDevice());
+                        }
                     } else if (answer == 2) {
-                        computeMatrixIntWithKernel(password, possibleCharacters, maxLength, chooseBestDevice());
+                        if (dictionary != NULL) {
+                            bruteForcePasswordGuesserDictionary(password, maxLength, dictionary, dicSize, memory, &attempts, chooseBestDevice());
+                        } else {
+                            bruteForcePasswordGuesser(password, possibleCharacters, maxLength, &attempts, chooseBestDevice());
+                        }
                     }
                 } else if (answer == 2) {
                     startTimer();
-                    string guessed = checkPassword(password, possibleCharacters, maxLength, &attempts);
+                    string guessed = bruteForcePasswordGuesserSeq(password, possibleCharacters, maxLength, dictionary, dicSize, &attempts);
                     stopTimer();
 
                     if (guessed != NULL) {
@@ -52,8 +72,34 @@ int main() {
                     }
                 }
             }
+        } else {
+            printf("Password is not correct! Please check your password\n");
         }
 
+    } else if (INCLUDE_UI == 3){
+        printf("\npow %.2f", pow(strlen(possibleCharacters), maxLength));
+        printf("\nnomrla %llu", strlen(possibleCharacters)^maxLength);
+
+        unsigned long long maxAvailableCharacters = 1;
+        int exp = maxLength;
+
+        while (exp > 0) {
+            maxAvailableCharacters *= strlen(possibleCharacters);
+            printf("\n%llu\t\t%llu", maxAvailableCharacters, strlen(possibleCharacters));
+            exp--;
+        }
+        attempts = maxAvailableCharacters;
+        printf("\n\nwith %llu\n\n", attempts);
+    } else if (INCLUDE_UI == 2){
+        dictionary = readDictionary("../easy.lst", &dicSize, &memory);
+        printf("\nmemory: %zu\n", memory);
+
+//        string result = bruteForcePasswordGuesser(password, possibleCharacters, maxLength, dictionary, dicSize, &attempts, chooseBestDevice());
+        string result = bruteForcePasswordGuesserDictionary(password, maxLength, dictionary, dicSize, memory, &attempts, chooseBestDevice());
+//        string result = calloc(maxLength, sizeof(char));
+//        test(password, possibleCharacters, result, &attempts, maxLength);
+
+        printf("\n\nwith %llu and String is %s\n\n", attempts, result);
     } else {
 
 //    printf("Please provide a password use [a-z][A-Z][0-9] at max length 10\n");
@@ -63,7 +109,7 @@ int main() {
         if (shouldCheck) {
 //            uul dicSize = 0;
 //
-//            string* dictionary = readDictionary("../dir.lst", &dicSize);
+//            string* dictionary = readDictionary("../simple.lst", &dicSize);
 //
 //            printf("\nThere are %llu entries in dictionary, that I will check against", dicSize);
 //
@@ -75,7 +121,7 @@ int main() {
             printf("\nThere are %llu possible solutions for password at max length of %d\n", (uul) getPossibleInvokes(possibleCharacters, maxLength), maxLength);
 
             startTimer();
-            string guessed = checkPassword(password, possibleCharacters, maxLength, &attempts);
+            string guessed = bruteForcePasswordGuesserSeq(password, possibleCharacters, maxLength, dictionary, dicSize, &attempts);
             stopTimer();
 
             if (guessed != NULL) {

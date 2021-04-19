@@ -8,7 +8,7 @@
 int generateUiForBruteAttack();
 int generateUiForBruteAttackProceedings();
 int generateUIForDeviceChoosing() ;
-string generateUIForPasswordInput();
-
+int generateUIForDictionary();
+string generateUIForPasswordInput(const int maxPasswordSize, const string possibleCharacters);
 
 #endif //MATRIX_MULTIPLICATOR_UI_H

@@ -10,7 +10,7 @@
 #include "simple_timer.h"
 #include "opencl_utils.h"
 
-#define INCLUDE_UI 0
+#define INCLUDE_UI 1
 
 int main() {
     srand(time(0));
@@ -52,7 +52,7 @@ int main() {
             } else if (answer == 4) {
                 answer = generateUIForCustomMatrixGenerator();
 
-                if (answer < 10000) {
+                if (answer <= 10000) {
                     cubeSize = answer;
                 } else {
                     printf("\nValue is too high\n");
@@ -147,7 +147,7 @@ int main() {
             } else if (answer == 4) {
                 answer = generateUIForCustomMatrixGenerator();
 
-                if (answer < 10000) {
+                if (answer <= 10000) {
                     fileContent = createRandomMatrix(answer, answer);
                 } else {
                     printf("Value is too high");

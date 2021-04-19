@@ -3,7 +3,7 @@
 
 #include "main.h"
 
-string* readDictionary(string path, uul* entries);
+string* readDictionary(string path, uul* entries, size_t* memory);
 char* readFile(string path);
 int printToFile(string filePath, string content);
 

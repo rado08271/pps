@@ -6,16 +6,15 @@
 
 #define WORK_DIM 2          // WORK_DIM represents how many dimensions should OPEN_CL use for computing and work_sizes
 
-cl_int runOpenClProgram(cl_kernel kernel, cl_command_queue queue, const size_t localWorkSize[2], const size_t globalWorkSize[2]) {
+cl_int runOpenClProgram(cl_kernel kernel, cl_command_queue queue, const size_t localWorkSize[1], const size_t globalWorkSize[1]) {
     // global means to specify amount of instances of work-item in kernel source
     // local means to specify how many of work-items should be grouped into one work-group and will spcify how many work groups there are
     // resulting work groups can be specified by work_dim and global work-item instances divided by clusters of these instances into groups
     // result will be in form of ammount of work_groups available in program G[x]/L[x] for any dimension (work_dim)
     cl_int err;
-
-    printf("g[0]: %zu, g[1]: %zu, l[0]: %zu, l[1]: %zu", globalWorkSize[0], globalWorkSize[1], localWorkSize[0], localWorkSize[1]);
+    printf("g[0]: %zu, l[0]: %zu", globalWorkSize[0], localWorkSize[0]);
     printf("\nExecuting specified program using OpenCL\n");
-    err = clEnqueueNDRangeKernel(queue, kernel, 2, NULL, globalWorkSize, localWorkSize, 0, NULL, NULL);
+    err = clEnqueueNDRangeKernel(queue, kernel, 1, NULL, globalWorkSize, localWorkSize, 0, NULL, NULL);
     if (err != CL_SUCCESS) {
         printf("\nExecution failed with %d\n", err);
 //        return NULL;
@@ -513,12 +512,25 @@ cl_device_id chooseDevice() {
     return device;
 }
 
-size_t getWorkerGroupSize(int closestNumber) {
+size_t getWorkerGroupSize(uul invokes) {
     for (size_t i = 1 ; ; i*=2) {
-        if (closestNumber < i) {
-            printf("\nClosest to %d is %zu", closestNumber, i);
+        if (invokes < i) {
+            printf("\nClosest to %d is %zu", invokes, i);
             return i;
         }
     }
 
+}
+
+string recreateDictionary(string* dictionary, int dicSize, size_t memory) {
+    string result = calloc(memory + dicSize, sizeof(char));
+
+    for (int i = 0; i < dicSize; i++) {
+        string currentVariation = dictionary[i];
+
+        strcat(result, currentVariation);
+        strcat(result, "#");
+    }
+
+    return result;
 }
