@@ -1,0 +1,3 @@
+C:/Users/Paly/CLionProjects/pps/edgeDetection/cmake-build-debug/CMakeFiles/edgeDetection.dir
+C:/Users/Paly/CLionProjects/pps/edgeDetection/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Paly/CLionProjects/pps/edgeDetection/cmake-build-debug/CMakeFiles/rebuild_cache.dir

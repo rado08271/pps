@@ -1,3 +1,0 @@
-C:/Users/rafig/CLionProjects/pps/edgeDeteciton/cmake-build-debug/CMakeFiles/edgeDetection.dir
-C:/Users/rafig/CLionProjects/pps/edgeDeteciton/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/rafig/CLionProjects/pps/edgeDeteciton/cmake-build-debug/CMakeFiles/rebuild_cache.dir

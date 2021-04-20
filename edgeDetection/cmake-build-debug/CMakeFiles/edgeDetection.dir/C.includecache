@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Paly/CLionProjects/pps/edgeDetection/main.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+math.h
+-
+sobel.h
+C:/Users/Paly/CLionProjects/pps/edgeDetection/sobel.h
+
+C:/Users/Paly/CLionProjects/pps/edgeDetection/sobel.h
+
