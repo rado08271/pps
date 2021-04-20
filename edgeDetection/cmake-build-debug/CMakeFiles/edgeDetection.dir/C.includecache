@@ -6,17 +6,15 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Paly/CLionProjects/pps/edgeDetection/main.c
+C:/Users/Daniel/Documents/SKOLA_TUKE/20.21_LS/paralelne_pocitacove_systemy/PPS/edgeDetection/main.c
 stdio.h
 -
 stdlib.h
 -
 string.h
 -
-math.h
--
 sobel.h
-C:/Users/Paly/CLionProjects/pps/edgeDetection/sobel.h
+C:/Users/Daniel/Documents/SKOLA_TUKE/20.21_LS/paralelne_pocitacove_systemy/PPS/edgeDetection/sobel.h
 
-C:/Users/Paly/CLionProjects/pps/edgeDetection/sobel.h
+C:/Users/Daniel/Documents/SKOLA_TUKE/20.21_LS/paralelne_pocitacove_systemy/PPS/edgeDetection/sobel.h
 

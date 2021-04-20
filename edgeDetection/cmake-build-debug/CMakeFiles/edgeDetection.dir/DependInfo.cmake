@@ -4,13 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/Paly/CLionProjects/pps/edgeDetection/main.c" "C:/Users/Paly/CLionProjects/pps/edgeDetection/cmake-build-debug/CMakeFiles/edgeDetection.dir/main.c.obj"
+  "C:/Users/Daniel/Documents/SKOLA_TUKE/20.21_LS/paralelne_pocitacove_systemy/PPS/edgeDetection/main.c" "C:/Users/Daniel/Documents/SKOLA_TUKE/20.21_LS/paralelne_pocitacove_systemy/PPS/edgeDetection/cmake-build-debug/CMakeFiles/edgeDetection.dir/main.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
-  "C:/Program Files (x86)/IntelSWTools/system_studio_2020/OpenCL/sdk/include"
+  "C:/Program Files (x86)/AMD APP SDK/3.0/include"
   )
 
 # Targets to which this target links.
