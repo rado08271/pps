@@ -79,14 +79,6 @@ int main() {
                         showResult = true;
                     }
                 } else if (answer == 2) {
-                    if (isInteger) {
-                        resultMatrixInt = computeMatrixIntStrassen(firstMatrixInt, secondMatrixInt, cubeSize, true);
-                        showResult = true;
-                    } else {
-                        resultMatrixFloat = computeMatrixFloatStrassen(firstMatrixFloat, secondMatrixFloat, cubeSize, true);
-                        showResult = true;
-                    }
-                } else if (answer == 3) {
                     answer = generateUIForDeviceChoosing();
 
                     if (isInteger) {
@@ -120,9 +112,6 @@ int main() {
                 computeMatrixIntIJK(firstMatrixInt, secondMatrixInt, cubeSize, true);
                 showResult = true;
             } else if (answer == 2) {
-                computeMatrixIntStrassen(firstMatrixInt, secondMatrixInt, cubeSize, true);
-                showResult = true;
-            } else if (answer == 3) {
                 answer = generateUIForDeviceChoosing();
 
                 if (answer == 1) {
@@ -158,71 +147,20 @@ int main() {
             free(fileContent);
         }
     } else if (INCLUDE_UI == 0) {
-        cubeSize = 2000;
+        cubeSize = 500;
 
         firstMatrixInt = generateRandomIntMatrix(cubeSize);
         secondMatrixInt = generateRandomIntMatrix(cubeSize);
 
-        resultMatrixInt = computeMatrixIntWithKernel(firstMatrixInt, secondMatrixInt, cubeSize, true, chooseBestDevice());
+        resultMatrixInt = computeMatrixIntIJK(firstMatrixInt, secondMatrixInt, cubeSize, true);
 
         showResult = false;
         isInteger = true;
+
+
     }
 
-    showResult = true;
-    if (showResult) {
-        if (isInteger) {
-//            printf("\n\n========= First =========\n\n");
-//            for (int i = 0; i < cubeSize; i++) {
-//                for (int x = 0; x < cubeSize; x++) {
-//                    printf("%d ", secondMatrixInt[cubeSize * i + x]);
-//                }
-//                printf("\n");
-//            }
-//
-//            printf("\n\n========= Second =========\n\n");
-//            for (int i = 0; i < cubeSize; i++) {
-//                for (int x = 0; x < cubeSize; x++) {
-//                    printf("%d ", secondMatrixInt[cubeSize * i + x]);
-//                }
-//                printf("\n");
-//            }
-//
-            printf("\n\n========= Result =========\n\n");
-            for (int i = 0; i < cubeSize; i++) {
-                for (int x = 0; x < cubeSize; x++) {
-                    printf("%d ", resultMatrixInt[cubeSize * i + x]);
-                    printf("%d ", resultMatrixInt[cubeSize * i + (cubeSize -1)]);
-                    break;
-                }
-                printf("\n");
-            }
-        } else {
-            printf("\n\n========= First =========\n\n");
-            for (int i = 0; i < cubeSize; i++) {
-                for (int x = 0; x < cubeSize; x++) {
-                    printf("%.2f ", firstMatrixFloat[cubeSize * i + x]);
-                }
-                printf("\n");
-            }
-
-            printf("\n\n========= Second =========\n\n");
-            for (int i = 0; i < cubeSize; i++) {
-                for (int x = 0; x < cubeSize; x++) {
-                    printf("%.2f ", secondMatrixFloat[cubeSize * i + x]);
-                }
-                printf("\n");
-            }
-
-            printf("\n\n========= Result =========\n\n");
-            for (int i = 0; i < cubeSize; i++) {
-                for (int x = 0; x < cubeSize; x++) {
-                    printf("%.2f ", resultMatrixFloat[cubeSize * i + x]);
-                }
-                printf("\n");
-            }
-        }
-    }
+    showResult = false;
 
     if (getTimerResult() >= 0) {
         printf("\n\n========= Your algorithm took %ld [us] to compute =========", getTimerResult());

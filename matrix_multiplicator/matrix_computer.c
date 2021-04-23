@@ -8,21 +8,8 @@
 #include "opencl_utils.h"
 #include "simple_timer.h"
 
-int* computeMatrixIntStrassen(const int* first, const int* second, uul cube, bool isGenerated) {
-    startTimer();
-    printf("\n//TODO: Should be implemented");
-    stopTimer();
-
-    return (int*) first;
-}
-
-float* computeMatrixFloatStrassen(const float* first, const float* second, uul cube, bool isGenerated) {
-    startTimer();
-    printf("\n//TODO: Should be implemented");
-    stopTimer();
-
-    return (float*) first;
-}
+#define MAX_TILE_SIZE 16
+#define WORK_ITEMS_PER_THREAD 8
 
 int* computeMatrixIntIJK(const int* first, const int* second, uul cube, bool isGenerated) {
     printf("Computing matrix using IJK ...\n");
@@ -33,15 +20,14 @@ int* computeMatrixIntIJK(const int* first, const int* second, uul cube, bool isG
     if (isGenerated) {
         startTimer();
 
-        for (int i = 0; i < cube; i++){
-            for (int x = 0; x < cube; x++) {
-                int cellResult = 0;
-                for (int z = 0; z < cube; z++) {
-                    cellResult += first[i*cube + z] * second[x + (z * cube)];
+        for (int k = 0; k < cube; k++) {
+            for (int i = 0; i < cube; i++) {
+                for (int j = 0; j < cube; j++) {
+                    result[i * cube + j] += first[i * cube + k] * second[k * cube + j];
                 }
-                result[cube*i+x] = cellResult;
             }
         }
+
 
         stopTimer();
     } else {
@@ -91,7 +77,7 @@ int* computeMatrixIntWithKernel(const int* first, const int* second, uul bigCube
     cl_context context = createContext(device);
     cl_command_queue queue = createExecutionOrder(context, device);
     cl_program program = createProgram(context, kernelSource, device);
-    cl_kernel kernel = createProgramKernel(program, "matrixMul", device);
+    cl_kernel kernel = createProgramKernel(program, "matrixMultiplication", device);
 
 
     cl_mem memoryBufferForFirstMatrix = allocateMemory(context, sizeof (first) * cube * cube, true);
@@ -112,8 +98,8 @@ int* computeMatrixIntWithKernel(const int* first, const int* second, uul bigCube
     err = clSetKernelArg(kernel, 3, sizeof(int), (void*) &cube);
     err = clSetKernelArg(kernel, 4, sizeof(int), (void*) &cube);
 
-    const size_t local[2] = {(size_t) 16, (size_t) 16};
-    const size_t global[2] = {(size_t) getWorkerGroupSize(cube), (size_t) getWorkerGroupSize(cube)};
+    const size_t local[2] = {(size_t) MAX_TILE_SIZE, (size_t) MAX_TILE_SIZE/WORK_ITEMS_PER_THREAD};
+    const size_t global[2] = {(size_t) getWorkerGroupSize(cube), (size_t) getWorkerGroupSize(cube)/WORK_ITEMS_PER_THREAD};
 
     printf("\nExecution of OpenCl");
 
@@ -160,8 +146,7 @@ float* computeMatrixFloatWithKernel(const float* first, const float* second, uul
     cl_context context = createContext(device);
     cl_command_queue queue = createExecutionOrder(context, device);
     cl_program program = createProgram(context, kernelSource, device);
-    cl_kernel kernel = createProgramKernel(program, "matrixMulFloat", device);
-
+    cl_kernel kernel = createProgramKernel(program, "matrixMultiplicationFloat", device);
 
     cl_mem memoryBufferForFirstMatrix = allocateMemory(context, sizeof (first) * cube * cube, true);
     if (memoryBufferForFirstMatrix != NULL)
@@ -181,8 +166,8 @@ float* computeMatrixFloatWithKernel(const float* first, const float* second, uul
     err = clSetKernelArg(kernel, 3, sizeof(int), (void*) &cube);
     err = clSetKernelArg(kernel, 4, sizeof(int), (void*) &cube);
 
-    const size_t local[2] = {(size_t) 1, (size_t) 1};
-    const size_t global[2] = {(size_t) 2048, (size_t) cube};
+    const size_t local[2] = {(size_t) MAX_TILE_SIZE, (size_t) MAX_TILE_SIZE/WORK_ITEMS_PER_THREAD};
+    const size_t global[2] = {(size_t) getWorkerGroupSize(cube), (size_t) getWorkerGroupSize(cube)/WORK_ITEMS_PER_THREAD};
 
     printf("\nExecution of OpenCl");
 

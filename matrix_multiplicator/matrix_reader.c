@@ -116,8 +116,8 @@ int* generateRandomIntMatrix(uul cube) {
     int* matrix = (int*) malloc(sizeof(int*) * cube*cube);
 
     for (int row = 0; row < cube*cube; row++) {
-        matrix[row]= (int) (rand() % 10);
-//        matrix[row]= row %10 +1;
+//        matrix[row]= (int) (rand() % 10);
+        matrix[row]= row %10 +1;
     }
 
     return matrix;

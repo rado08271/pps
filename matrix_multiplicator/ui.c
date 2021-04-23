@@ -36,9 +36,8 @@ int generateUiForMatrixComputing() {
 
     printf("============ Compute matrix ===========\n");
     printf("| Please select:                      |\n");
-    printf("| 1. Sequential algorithm ijk         |\n");
-    printf("| 2. Sequential algorithm Strassen    |\n");
-    printf("| 3. Parallel algorithm using OpenCL  |\n");
+    printf("| 1. Sequential algorithm kij         |\n");
+    printf("| 2. Parallel algorithm using OpenCL  |\n");
     printf("| 0. Exit                             |\n");
     printf("=======================================\n");
 

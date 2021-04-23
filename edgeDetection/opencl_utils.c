@@ -1,10 +1,9 @@
 #include <CL/cl.h>
-#include <stdbool.h>
-#include "stdio.h"
 
 #include "opencl_utils.h"
 
 #define WORK_DIM 2          // WORK_DIM represents how many dimensions should OPEN_CL use for computing and work_sizes
+
 
 cl_event createEvent(cl_context context) {
     cl_int err;
@@ -32,7 +31,7 @@ cl_event createEvent(cl_context context) {
     return event;
 }
 
-cl_int runOpenClProgram(cl_kernel kernel, cl_command_queue queue, const size_t localWorkSize[1], const size_t globalWorkSize[1], cl_event *waitEvent) {
+cl_int runOpenClProgram(cl_kernel kernel, cl_command_queue queue, const size_t localWorkSize[1], const size_t globalWorkSize[1], cl_event waitList) {
     // global means to specify amount of instances of work-item in kernel source
     // local means to specify how many of work-items should be grouped into one work-group and will spcify how many work groups there are
     // resulting work groups can be specified by work_dim and global work-item instances divided by clusters of these instances into groups
@@ -40,7 +39,7 @@ cl_int runOpenClProgram(cl_kernel kernel, cl_command_queue queue, const size_t l
     cl_int err;
     printf("g[0]: %zu, l[0]: %zu", globalWorkSize[0], localWorkSize[0]);
     printf("\nExecuting specified program using OpenCL\n");
-    err = clEnqueueNDRangeKernel(queue, kernel, 1, NULL, globalWorkSize, localWorkSize, 0, NULL, waitEvent);
+    err = clEnqueueNDRangeKernel(queue, kernel, 1, NULL, globalWorkSize, localWorkSize, 0, NULL, &waitList);
     if (err != CL_SUCCESS) {
         printf("\nExecution failed with %d\n", err);
 //        return NULL;
@@ -113,21 +112,23 @@ cl_program createProgram(cl_context context, string sourceCode, cl_device_id dev
 
     printf ("\nBuilding CL program (with compiling and linking)\n");
     err = clBuildProgram(program, 0, NULL, NULL, NULL, NULL);
-
-    printf ("\nPrinting build status\n");
-
-    size_t size = 0;
-    clGetProgramBuildInfo(program, device, CL_PROGRAM_BUILD_LOG, 0, NULL, &size);
-    string info = (string) malloc(size);
-    clGetProgramBuildInfo(program, device, CL_PROGRAM_BUILD_LOG, size, info, NULL);
-    printf("%s\n", info);
-
     if (err != CL_SUCCESS) {
-        printf("\nCL Program failed with %d\n", err);
+        printf("\nCL Program Build process failed with %d\n", err);
+
+        printf ("\nPrinting build status\n");
+
+        size_t size = 0;
+        clGetProgramBuildInfo(program, device, CL_PROGRAM_BUILD_LOG, 0, NULL, &size);
+        string info = (string) malloc(size);
+        clGetProgramBuildInfo(program, device, CL_PROGRAM_BUILD_LOG, size, info, NULL);
+        printf("%s\n", info);
+
+        free(info);
+
         return NULL;
     }
 
-    free(info);
+
     return program;
 }
 
@@ -135,7 +136,7 @@ cl_mem allocateMemory(cl_context context, size_t size, bool readOnly) {
     cl_int err;
 
     printf ("\nAllocating, %llu bytes of memory\n", size);
-    cl_mem allocated_memory = clCreateBuffer(context, readOnly ? CL_MEM_READ_WRITE : CL_MEM_READ_WRITE, size, NULL, &err);
+    cl_mem allocated_memory = clCreateBuffer(context, readOnly ? CL_MEM_READ_ONLY : CL_MEM_READ_WRITE, size, NULL, &err);
 
     if (err != CL_SUCCESS) {
         printf("\nMemory allocation failed with %d\n", err);
@@ -551,6 +552,7 @@ size_t getWorkerGroupSize(uul invokes) {
 string recreateDictionary(string* dictionary, int dicSize, size_t memory) {
     string result = calloc(memory + dicSize, sizeof(char));
 
+    printf("\ndictionarySize, %d\n", dicSize);
     for (int i = 0; i < dicSize; i++) {
         string currentVariation = dictionary[i];
 

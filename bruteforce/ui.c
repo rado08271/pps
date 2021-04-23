@@ -27,6 +27,7 @@ int generateUIForDictionary() {
     printf("| Please select:                      |\n");
     printf("| 1. Use simple dictionary (4m)       |\n");
     printf("| 2. Use advanced dictionary (64m)    |\n");
+    printf("| 3. No dictionary                    |\n");
     printf("| 0. Exit                             |\n");
     printf("=======================================\n");
 
@@ -70,7 +71,7 @@ string generateUIForPasswordInput(const int maxPasswordSize, const string possib
     printf("====== Please input your password =====\n");
     printf("|     -  Password max length is       |\n");
     printf("\t%d\n", maxPasswordSize);
-    printf("|     -  Supported chars [AZaz09]     |\n");
+    printf("|     -  Supported chars              |\n");
     printf("\t%s\n", possibleCharacters);
     printf("|-------------------------------------|\n");
     printf("|                                     |\n");

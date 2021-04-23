@@ -10,9 +10,10 @@
 struct timeval start, stop;
 bool started, stopped;
 double msResult = 0;
+double tmpTime = 0;
 
 long startTimer() {
-//    printf("Timer started\n");
+    printf("Timer started\n");
     gettimeofday(&start, NULL);
     started = true;
 
@@ -20,7 +21,7 @@ long startTimer() {
 }
 
 long stopTimer() {
-//    printf("Timer stopped\n");
+    printf("Timer stopped\n");
     gettimeofday(&stop, NULL);
     stopped = true;
 
@@ -33,3 +34,4 @@ long getTimerResult() {
     msResult = (double)(stop.tv_usec - start.tv_usec)  + (double)(stop.tv_sec - start.tv_sec) * 1000000.0f;
     return (long) msResult;
 }
+

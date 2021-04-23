@@ -1,13 +1,23 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 #include "sobel.h"
+#include "edgeDetection.h"
+#include "opencl_utils.h"
+#include "simple_timer.h"
+
+// if you want to use open cl kernel, use 1, otherwise sequential algorithm is run
+#define USE_KERNEL 1
+// in case of 1 - averaging values to gain smoother edges
+// in case of 2 - values are computed to gain rough look over most significant edges
+#define TYPE_OF_NORMALIZER 1
+
 
 int main() {
     int *finalArray, *outputArray, *sharp;
     PGM input_image, output_image;
-    char dir[] = "C:\\Users\\Daniel\\Desktop\\img\\img-7.pgm";
+    char dir[] = "../img/img_formula.pgm";
 
     read_pgm_file(dir, &input_image);
     padding(&input_image);
@@ -21,12 +31,18 @@ int main() {
     sharp = (int *) calloc(width * height, sizeof(float));
 
     convert2dto1d(input_image.imageData, width, height, finalArray,sharp, outputArray);
-    sobel_edge_detector1D(width, height, finalArray, outputArray, sharp);
+    if (USE_KERNEL == 1) {
+        outputArray = sobelEdgeDetectorInOpenCl(width, height, finalArray, outputArray, sharp);
+    } else {
+        startTimer();
+        sobel_edge_detector1D(width, height, finalArray, outputArray, sharp);
+        stopTimer();
+    }
     convert1dto2d(output_image.imageData, width, height, outputArray);
 
     min_max_normalization(&output_image, output_image.imageData);
-    write_pgm_file(&output_image, dir, output_image.imageData, "_detected.pgm");
-    printf("\nGradient saved: %s \n", dir);
+    write_pgm_file(&output_image, dir, output_image.imageData, "_detectek.pgm");
+    printf("\nGradient saved: %s, it took %ld [ns]\n", dir, getTimerResult());
 
     free(finalArray);
     free(outputArray);
@@ -81,8 +97,7 @@ void read_pgm_file(char *dir, PGM *input_image) {
     }
     fclose(input_file);
     printf("____IMAGE INFO____\n");
-    printf("Version: %s \nWidth: %d \nHeight: %d \nMaximum Gray Level: %d \n",
-           input_image->version, input_image->width, input_image->height, input_image->maxGrayLevel);
+    printf("Version: %s \nWidth: %d \nHeight: %d \nMaximum Gray Level: %d \n", input_image->version, input_image->width, input_image->height, input_image->maxGrayLevel);
 }
 
 void readComments(FILE *input_file) {
@@ -130,7 +145,17 @@ void initializeImage(PGM *output_image, PGM input_image) {
     copyImages(output_image, input_image);
 }
 
+
+int* sobelEdgeDetectorInOpenCl(int width, int height, int *array, int *out, int *sharp) {
+    int *tmpArray = runImageSharpening(array, sharp, out, width, height);
+
+    memcpy(out, tmpArray, width*height * sizeof (int));
+
+    return tmpArray;
+}
+
 void sobel_edge_detector1D(int width, int height, int *array, int *out, int *sharp) {
+
     int sharpenKernel[9] = {
             0, -1, 0,
             -1, 5, -1,
@@ -191,7 +216,6 @@ void sobel_edge_detector1D(int width, int height, int *array, int *out, int *sha
                              (sharp[position + 1 - width] * yKernel[2]) + (sharp[position - 1 + width] * yKernel[6]) +
                              (sharp[position + width] * yKernel[7]) + (sharp[position + 1 + width] * yKernel[8]);
 
-            /*implementation of finalSquaredNumber*/
 
             //number to be squared is calculated as follows (sobel algorithm)
             int number = (xDimension * xDimension) + (yDimension * yDimension);
@@ -245,7 +269,11 @@ void min_max_normalization(PGM *input_image, int **matrix) {
     for (int i = 0; i < input_image->height; i++) {
         for (int j = 0; j < input_image->width; j++) {
             double ratio = (double) (matrix[i][j] - min) / (max - min);
-            matrix[i][j] = ratio * 255;
+            if (TYPE_OF_NORMALIZER == 1) {
+                matrix[i][j] = ratio * 255;
+            } else if (TYPE_OF_NORMALIZER == 2) {
+                matrix[i][j] = matrix[i][j]>(max*0.1)? ratio * 100 :  ratio * 1000;
+            }
         }
     }
 }
